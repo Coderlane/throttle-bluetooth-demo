@@ -30,8 +30,13 @@ set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -DNDEBUG -O3")
 add_subdirectory(${TBD_SRC})
 set(TBD_SOURCE_FILES ${SOURCE_FILES})
 
+pkg_search_module(LIBUV REQUIRED libuv)
+pkg_search_module(BLUEZ REQUIRED bluez)
+
 # Build and link the executable
 add_executable(${TBD_EXE} ${TBD_SOURCE_FILES})
+target_link_libraries(${TBD_EXE} ${LIBUV_LIBRARIES})
+target_link_libraries(${TBD_EXE} ${BLUEZ_LIBRARIES})
 
 # Config File Settings
 set(TBD_INSTALL_PREFIX      "${CMAKE_INSTALL_PREFIX}")
