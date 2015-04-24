@@ -30,3 +30,13 @@
 
 # Debug files
 *.dSYM/
+
+# Vim
+.*.sw*
+
+# YCM
+*.pyc
+*.py
+
+# Build
+build/*
