@@ -48,7 +48,9 @@ int main(int argc, char **argv)
 	// Connection went ok, read data untill done.
   printf("Connected\n");
   while((size_read = read(sockid, buf, sizeof(buf))) > 0) {
-    printf("Data: %d\n", atoi(buf));
+    printf("Size: %d Data: %s\n", size_read, buf);
+		bzero(buf, sizeof(buf));
+		usleep(50 * 1000);
   }
   printf("Disconnected\n");
 
